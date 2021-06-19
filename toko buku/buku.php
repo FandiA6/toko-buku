@@ -47,39 +47,39 @@ if($data['id_buku']==" "){
   $id_buku = "BKU00000000001";
 }
 else{
-  @$id_buku = substr($data['id_buku'],13);
+  @$id_buku = substr($data['id_buku'],3);
   @$id_buku = intval($id_buku);
-  if($id_buku <10){
+  if($id_buku <9){
     $id_buku = "BKU0000000000".( $id_buku+1);
   }
-  elseif($id_buku <100){
+  elseif($id_buku <99){
     $id_buku = "BKU000000000".( $id_buku+1);
   }
-  elseif($id_buku <1000){
+  elseif($id_buku <999){
     $id_buku = "BKU00000000".( $id_buku+1);
   }
-  elseif($id_buku <10000){
+  elseif($id_buku <9999){
     $id_buku = "BKU0000000".( $id_buku+1);
   }
-  elseif($id_buku <100000){
+  elseif($id_buku <99999){
     $id_buku = "BKU000000".( $id_buku+1);
   }
-  elseif($id_buku <1000000){
+  elseif($id_buku <999999){
     $id_buku = "BKU00000".( $id_buku+1);
   }
-  elseif($id_buku <10000000){
+  elseif($id_buku <9999999){
     $id_buku = "BKU0000".( $id_buku+1);
   }
-  elseif($id_buku <100000000){
+  elseif($id_buku <99999999){
     $id_buku = "BKU000".( $id_buku+1);
   }
-  elseif($id_buku <100000000){
+  elseif($id_buku <999999999){
     $id_buku = "BKU000".( $id_buku+1);
   }
-  elseif($id_buku <1000000000){
+  elseif($id_buku <9999999999){
     $id_buku = "BKU00".( $id_buku+1);
   }
-  elseif($id_buku <10000000000){
+  elseif($id_buku <99999999999){
     $id_buku = "BKU0".( $id_buku+1);
   }
 }
@@ -154,9 +154,9 @@ else{
 		 				<?php 
 		 					if (@$_GET['id']=="") {
 		 				 ?>
-		 				<button name="simpan" class="btn btn-primary">Simpan</button>
+		 				<button name="simpan" class="btn btn-dark mt-3">Simpan</button>
 		 				<?php }else{ ?>
-		 				<button name="update" class="btn btn-primary">Update</button>
+		 				<button name="update" class="btn btn-dark mt-3">Update</button>
 		 				<?php } ?>
 		 			</div>
 		 		</div>

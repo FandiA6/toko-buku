@@ -21,43 +21,40 @@ $go = new controller();
 $query="SELECT * FROM penjualan ORDER BY id_penjualan desc LIMIT 1";
 $data = mysqli_fetch_assoc(mysqli_query($con,$query));
 if(@$data['id_penjualan']==" "){
-  $id_penjualan = "FKT00000000001";
+  $id_penjualan = "FKT0000000001";
 }
 else{
   @$id_penjualan = substr($data['id_penjualan'],3);
   @$id_penjualan = intval($id_penjualan);
-  if($id_penjualan <10){
-    $id_penjualan = "FKT0000000000".( $id_penjualan+1);
-  }
-  elseif($id_penjualan <100){
+  if($id_penjualan <9){
     $id_penjualan = "FKT000000000".( $id_penjualan+1);
   }
-  elseif($id_penjualan <1000){
+  elseif($id_penjualan <99){
     $id_penjualan = "FKT00000000".( $id_penjualan+1);
   }
-  elseif($id_penjualan <10000){
+  elseif($id_penjualan <999){
     $id_penjualan = "FKT0000000".( $id_penjualan+1);
   }
-  elseif($id_penjualan <100000){
+  elseif($id_penjualan <9999){
     $id_penjualan = "FKT000000".( $id_penjualan+1);
   }
-  elseif($id_penjualan <1000000){
+  elseif($id_penjualan <99999){
     $id_penjualan = "FKT00000".( $id_penjualan+1);
   }
-  elseif($id_penjualan <10000000){
+  elseif($id_penjualan <999999){
     $id_penjualan = "FKT0000".( $id_penjualan+1);
   }
-  elseif($id_penjualan <100000000){
+  elseif($id_penjualan <9999999){
     $id_penjualan = "FKT000".( $id_penjualan+1);
   }
-  elseif($id_penjualan <100000000){
-    $id_penjualan = "FKT000".( $id_penjualan+1);
-  }
-  elseif($id_penjualan <1000000000){
+  elseif($id_penjualan <99999999){
     $id_penjualan = "FKT00".( $id_penjualan+1);
   }
-  elseif($id_penjualan <10000000000){
+  elseif($id_penjualan <999999999){
     $id_penjualan = "FKT0".( $id_penjualan+1);
+  }
+  elseif($id_penjualan <9999999999){
+    $id_penjualan = "FKT".( $id_penjualan+1);
   }
 }
 if(isset($_GET['pilih'])){

@@ -18,43 +18,40 @@ $go = new controller();
 $query="SELECT * FROM pasok ORDER BY id_pasok DESC LIMIT 1";
 $data = mysqli_fetch_assoc(mysqli_query($con,$query));
 if(@$data['id_pasok']==" "){
-  $id_pas = "PS00000000001";
+  $id_pas = "PS0000000001";
 }
 else{
   @$id_pas = substr($data['id_pasok'],2);
   @$id_pas = intval($id_pas);
-  if($id_pas <10){
-    $id_pas = "PS0000000000".( $id_pas+1);
-  }
-  elseif($id_pas <100){
+  if($id_pas <9){
     $id_pas = "PS000000000".( $id_pas+1);
   }
-  elseif($id_pas <1000){
+  elseif($id_pas <99){
     $id_pas = "PS00000000".( $id_pas+1);
   }
-  elseif($id_pas <10000){
+  elseif($id_pas <999){
     $id_pas = "PS0000000".( $id_pas+1);
   }
-  elseif($id_pas <100000){
+  elseif($id_pas <9999){
     $id_pas = "PS000000".( $id_pas+1);
   }
-  elseif($id_pas <1000000){
+  elseif($id_pas <99999){
     $id_pas = "PS00000".( $id_pas+1);
   }
-  elseif($id_pas <10000000){
+  elseif($id_pas <999999){
     $id_pas = "PS0000".( $id_pas+1);
   }
-  elseif($id_pas <100000000){
+  elseif($id_pas <9999999){
     $id_pas = "PS000".( $id_pas+1);
   }
-  elseif($id_pas <100000000){
-    $id_pas = "PS000".( $id_pas+1);
-  }
-  elseif($id_pas <1000000000){
+  elseif($id_pas <99999999){
     $id_pas = "PS00".( $id_pas+1);
   }
-  elseif($id_pas <10000000000){
+  elseif($id_pas <999999999){
     $id_pas = "PS0".( $id_pas+1);
+  }
+  elseif($id_pas <9999999999){
+    $id_pas = "PS".( $id_pas+1);
   }
 }
 if(isset($_GET['pilih'])){

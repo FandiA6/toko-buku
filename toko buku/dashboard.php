@@ -58,6 +58,7 @@
                       <a class="list-group-item list-group-item-action py-3" href="?menu=pasok"><i class="fa fa-chart-line me-3" aria-hidden="true"></i>Pasok Buku</a>
                       <a class="list-group-item list-group-item-action py-3" href="?menu=distributor"><i class="fa fa-random me-3" aria-hidden="true"></i>Input distributor</a>
                       <a class="list-group-item list-group-item-action py-3" href="?menu=laporanPenjualan"><i class="fa fa-dollar-sign me-3" aria-hidden="true"></i>Laporan Penjualan</a>
+                      <a class="list-group-item list-group-item-action py-3" href="?menu=lap_terlaris"><i class="fa fa-dollar-sign me-3" aria-hidden="true"></i>Buku Terlaris</a>
                <?php } elseif ($_SESSION['hak_akses'] =="manager") {?>
                       <a class="list-group-item list-group-item-action py-3" href="?menu=set_lap"><i class="fa fa-book me-3"></i>Input Setting Laporan</a>
                       <a class="list-group-item list-group-item-action py-3" href="?menu=input_user"><i class="fa fa-user me-3" aria-hidden="true"></i>Input User</a>
@@ -65,6 +66,7 @@
                       <a class="list-group-item list-group-item-action py-3" href="?menu=laporanPenjualan"><i class="fa fa-dollar-sign me-3" aria-hidden="true"></i>Laporan Penjualan</a>
                       <a class="list-group-item list-group-item-action py-3" href="?menu=lap_buku"><i class="fa fa-random me-3" aria-hidden="true"></i>Laporan Semua Buku</a>
                       <a class="list-group-item list-group-item-action py-3" href="?menu=lap_pasok"><i class="fa fa-chart-line me-3" aria-hidden="true"></i>Pasok Buku</a>
+                      <a class="list-group-item list-group-item-action py-3" href="?menu=lap_terlaris"><i class="fa fa-dollar-sign me-3" aria-hidden="true"></i>Buku Terlaris</a>
                <?php } ?>
 
                 </div>
@@ -74,17 +76,17 @@
                 <!-- Top navigation-->
                 <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
                     <div class="container-fluid">
-                        <button class="btn btn-primary" id="sidebarToggle"><i class="fa fa-bars" aria-hidden="true"></i></button>
+                        <button class="btn btn-secondary" id="sidebarToggle"><i class="fa fa-bars" aria-hidden="true"></i></button>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                                <li class="nav-item active"><a class="nav-link" href="dashboard.php">Home</a></li>
+                                <li class="nav-item active"><a class="nav-link" href="dashboard.php">Home <i class="fas fa-home ms-2"></i></a></li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account<i class="fas fa-user ms-2"></i></a>
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="?logout" onclick="return confirm('Apakah anda yakin ingin keluar')">Logout</a>
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#!">Change password</a>
+                                        <a class="dropdown-item" href="?menu=ganti_pass">Change password</a>
                                     </div>
                                 </li>
                             </ul>
@@ -140,6 +142,12 @@
                       case 'set_lap':
                         include 'set_lap.php';
                         break;
+                      case 'lap_terlaris':
+                        include 'lap_penjualan_terlaris.php';
+                        break;
+                      case 'ganti_pass':
+                        include 'ganti_pass.php';
+                        break;  
                       default:
                         include 'landing_page.php';
                         break;
