@@ -52,7 +52,7 @@ if(isset($_POST['ubah'])){
         </div>
         <div class="mb-2" data-aos="fade-up" data-aos-delay="200">
         <label class="form-label h6">Password :</label>
-        <input type="password"  class="form-control" name="pass" value="<?php echo base64_decode(@$edit['password']) ?>" required>
+        <input type="password"  class="form-control" name="pass" value="<?php echo@$edit['password'] ?>" required>
         </div>
         <div class="mb-2" data-aos="fade-up" data-aos-delay="200">
         <label class="form-label h6">Hak Akses :</label>
@@ -94,11 +94,11 @@ if(isset($_POST['ubah'])){
           foreach($data as $r){
               $no++;
               echo "<tr>
-                <td>".$no."</td>
+                <td>".$r['id']."</td>
                 <td>".$r['username']."</td>
                 <td>".$r['password']."</td>
-                <td><a class='btn btn-dark text-light hover' href=?menu=user&hapus&id=".$r['id']." onclick=return confirm('yakin mau hapus?')>Hapus</a></td>
-                <td><a class='btn btn-dark text-light hover' href=?menu=user&edit&id=".$r['id'].">Edit</a></td>
+                <td><a class='btn btn-dark text-light hover' href=?menu=input_user&hapus&id=".$r['id']." onclick=return confirm('yakin mau hapus?')>Hapus</a></td>
+                <td><a class='btn btn-dark text-light hover' href=?menu=input_user&edit&id=".$r['id'].">Edit</a></td>
               </tr>";
           } 
       ?>

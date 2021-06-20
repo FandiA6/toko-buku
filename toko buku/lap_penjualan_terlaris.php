@@ -11,6 +11,7 @@ include "library/controller.php";
         <tr class="table-dark">
             <th>NO</th>
             <th>Id Buku</th>
+            <th>Judul Buku</th>
             <th>Jumlah Terjual</th>
           </tr>
     </thead>
@@ -31,24 +32,25 @@ include "library/controller.php";
               //     $no++
               // $query=mysqli_fetch_assoc($jalan);
               while ($r = mysqli_fetch_assoc($jalan)){
-              $query = "SELECT * from penjualan WHERE id_buku = '$r[id_buku]' ";
+              $query = "SELECT * ,sum(jumlah_beli) AS jumlah_beli from penjualan INNER JOIN buku using(id_buku) WHERE id_buku = '$r[id_buku]' ";
               $data = mysqli_fetch_assoc(mysqli_query($con,$query));
-              $total_jual = mysqli_fetch_array(mysqli_query($con,"SELECT jumlah_beli,sum(jumlah_beli) AS jumlah_beli FROM penjualan WHERE id_buku = '$r[id_buku]' "));
+              // $total_jual = mysqli_fetch_array(mysqli_query($con,"SELECT sum(jumlah_beli) AS jumlah_beli FROM penjualan WHERE id_buku = '$r[id_buku]' "));
               $no++;
           ?>
           <tr>
               <td><?=  $no ?></td>
               <td><?=  $data['id_buku'] ?></td>
-              <td><?=  $total_jual['jumlah_beli'] ?></td>
+              <td><?=  $data['judul'] ?></td>
+              <td><?=  $data['jumlah_beli'] ?></td>
           </tr>
-          <?php }  ?>
+          <?php } ?>
     </tbody>
     <tfoot class="table-dark">
     <tr>
             <th>NO</th>
             <th>Id Buku</th>
+            <th>Judul Buku</th>
             <th>Jumlah Terjual</th>
-           
           </tr>
       </tr>
     </tfoot>
